@@ -3,18 +3,20 @@ import React from "react";
 const ListItem = (props) => {
   { 
     return (
-        <table>
+        <div id="table">
 
-        
   {  props.players.length ? 
       props.players.map((puppy) => {
-        // console.log(puppy.name);
-        
+        //console.log(puppy, "is puppy output");
           <div id="panel">
-            <div>"test"</div>
+            <div>{puppy.name}</div>
+            <div>{puppy}</div>
           </div>
-</table>
+      })    : <div>loading puppies...</div>}
+
+</div>
         )
  
+    }}
 
 export default ListItem;

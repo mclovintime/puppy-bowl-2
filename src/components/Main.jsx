@@ -12,7 +12,7 @@ const Main = () => {
         const getPlayers = await fetch('https://fsa-puppy-bowl.herokuapp.com/api/2209-FTB-ET-WEB-FT/players'
         );
         const result = await getPlayers.json()
-        console.log(result, "is the result")
+        
         const fetchedPlayers = result.data.players
         setPlayers(fetchedPlayers)
       } catch(err){
