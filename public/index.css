@@ -15,5 +15,26 @@ body {
   color: white;
   display: flex;
   align-items: center;
+padding-left: 100px;
 }
 
+#panel{
+  border: 2px solid black;
+  padding: 30px;
+  min-width: 20%;
+  margin: 1rem;
+  
+}
+#table{
+  display: flex;
+  flex-direction: row;
+  /* max-width: 30%; */
+  flex-wrap: wrap;
+
+}
+/* #app{
+  max-width: 1400px;
+} */
+.puppyImage{
+  max-width: 350px;
+}
