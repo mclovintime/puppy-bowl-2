@@ -1,24 +1,20 @@
-import React from 'react'
-
+import React from "react";
 
 const ListItem = (props) => {
-    
+  { 
+    return (
+        <table>
 
-    {props.players.length ? props.players.map((puppy)   =>  {
         
-        return (
-        <div id="panel">
-            <div>{puppy.id}</div>
-            
-        </div>)
-    }) : <div>loading puppies...</div> }
-   
-    return(
+  {  props.players.length ? 
+      props.players.map((puppy) => {
+        // console.log(puppy.name);
         
-null
-    )
+          <div id="panel">
+            <div>"test"</div>
+          </div>
+</table>
+        )
+ 
 
-    }
-
-
-export default ListItem
+export default ListItem;
