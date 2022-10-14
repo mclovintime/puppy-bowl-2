@@ -1,6 +1,11 @@
 import React from "react";
+import { Main } from ".";
 
 const ListItem = (props) => {
+  function panelClick(event) {
+    setSelectedPlayer(player);
+    console.log("test");
+  }
   {
     return (
       <div id="table">
@@ -8,10 +13,16 @@ const ListItem = (props) => {
           props.players.map((puppy) => {
             console.log(puppy, "is puppy output");
             return (
-              <div id="panel">
-                <div id="name"><b>{puppy.name}</b></div>
+              <div onClick={() => puppy.SelectedPlayer(puppy.id)} id="panel">
+                <div id="name">
+                  <b>{puppy.name}</b>
+                </div>
                 <img class="puppyImage" src={puppy.imageUrl} />
-                <div id="id"><i><b>{`#${puppy.id}`}</b></i></div>
+                <div id="id">
+                  <i>
+                    <b>{`#${puppy.id}`}</b>
+                  </i>
+                </div>
               </div>
             );
           })

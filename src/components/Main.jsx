@@ -4,9 +4,17 @@ import ListItem from "./ListItem";
 
 
 const Main = () => {
+  const getPlayer = async(playerId) => {
+    const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2209-FTB-ET-WEB-FT/players/${playerId}`)
+    const pup = await response.json();
+    setSelectedPlayer(pup)
+  } 
   const [players, setPlayers] = useState([])
   const [selectedPlayer, setSelectedPlayer] = useState({})
+  console.log(selectedPlayer)
+
   useEffect(() => {
+
     async function getPlayerData(){
       try{
         const getPlayers = await fetch('https://fsa-puppy-bowl.herokuapp.com/api/2209-FTB-ET-WEB-FT/players'
