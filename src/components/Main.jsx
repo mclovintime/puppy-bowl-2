@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Navbar} from './'
 import ListItem from "./ListItem";
+import SinglePuppy from "./SinglePuppy";
 
 
 const Main = () => {
@@ -10,11 +11,10 @@ const Main = () => {
     setSelectedPlayer(pup)
   } 
   const [players, setPlayers] = useState([])
-  const [selectedPlayer, setSelectedPlayer] = useState({})
-  console.log(selectedPlayer)
+  const [selectedPlayer, setSelectedPlayer] = useState(0)
 
+  
   useEffect(() => {
-
     async function getPlayerData(){
       try{
         const getPlayers = await fetch('https://fsa-puppy-bowl.herokuapp.com/api/2209-FTB-ET-WEB-FT/players'
@@ -26,19 +26,24 @@ const Main = () => {
       } catch(err){
         console.error(err)
       }
-      
     }
     getPlayerData()
   }, [])
-
+  // console.log(selectedPlayer, "is selected player")
   return (
     <div id="main">
     <Navbar/>
     <div id="list">
-      <ListItem players={players}></ListItem>
+    
+      {selectedPlayer > 0 ? <SinglePuppy puppyId={selectedPlayer} getPlayer={getPlayer}/> : <ListItem players={players} setSelectedPlayer={setSelectedPlayer}></ListItem>}
+    
+      
+      
     </div>
   </div>
   );
+  
 };
+
 
 export default Main;
