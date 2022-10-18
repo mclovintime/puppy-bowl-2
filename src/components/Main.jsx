@@ -8,10 +8,12 @@ const Main = () => {
   const getPlayer = async(playerId) => {
     const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2209-FTB-ET-WEB-FT/players/${playerId}`)
     const pup = await response.json();
-    setSelectedPlayer(pup)
+     setCurrentSinglePuppy(pup)
+    return pup
   } 
   const [players, setPlayers] = useState([])
   const [selectedPlayer, setSelectedPlayer] = useState(0)
+  const [currentSinglePuppy, setCurrentSinglePuppy]= useState({})
 
   
   useEffect(() => {
@@ -27,9 +29,11 @@ const Main = () => {
         console.error(err)
       }
     }
+
+
     getPlayerData()
   }, [])
-  // console.log(selectedPlayer, "is selected player")
+  console.log(selectedPlayer, "is selected player")
   return (
     <div id="main">
     <Navbar/>
