@@ -33,6 +33,9 @@ const Main = () => {
 
     getPlayerData()
   }, [])
+
+  
+
   console.log(selectedPlayer, "is selected player")
   return (
     <div id="main">
